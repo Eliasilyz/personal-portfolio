@@ -1,6 +1,0 @@
-# Allow all crawlers to index the site
-User-agent: *
-Allow: /
-
-# Sitemap URL
-Sitemap: https://farel-portfolio.vercel.app/sitemap.xml
