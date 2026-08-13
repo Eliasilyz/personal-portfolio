@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useEffect, useRef, useState } from "react";
 import { Play, RotateCcw, Volume2, VolumeX, HelpCircle, Trophy, Sparkles } from "lucide-react";
 import { useLanguage } from "../../lib/LanguageProvider";

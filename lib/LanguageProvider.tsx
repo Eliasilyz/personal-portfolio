@@ -1,3 +1,5 @@
+"use client"
+
 import React, { createContext, useContext, useState, useEffect } from "react";
 import en from "../content/i18n/en.json";
 import id from "../content/i18n/id.json";

@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useState } from "react";
 import { FolderGit2, ExternalLink, Github, Server, Tag } from "lucide-react";
 import { projects, Project } from "../../content/projects";

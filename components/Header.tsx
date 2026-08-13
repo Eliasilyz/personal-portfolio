@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useState } from "react";
 import { Sun, Moon, Menu, X, Terminal } from "lucide-react";
 import { useTheme } from "../lib/ThemeProvider";

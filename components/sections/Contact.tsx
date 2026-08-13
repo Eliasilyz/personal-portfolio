@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useState } from "react";
 import { Mail, Copy, Check, MapPin, Send, MessageSquare, ExternalLink, ArrowUpRight } from "lucide-react";
 import { contact } from "../../content/contact";
