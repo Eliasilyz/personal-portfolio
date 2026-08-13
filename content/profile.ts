@@ -25,7 +25,7 @@ export const profile: Profile = {
   avatarUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600",
   bio: {
     en: "18-year-old self-directed software developer, crypto & spot trader, and multiplayer game server engineer based in Ponorogo, East Java. Dedicated to building performant web applications, customizing high-throughput Minecraft Fabric servers, and analyzing stock and cryptocurrency market dynamics.",
-    id: "Pengembang perangkat lunak mandiri, trader saham & kripto spot, serta insinyur server game multiplayer berusia 18 tahun yang berdomisili di Ponorogo, Jawa Timur. Berdedikasi untuk membangun aplikasi web cepat, mengkustomisasi server Minecraft Fabric performa tinggi, dan menganalisis dinamika pasar saham & kripto.",
+    id: "Pengembang perangkat lunak mandiri, saham & kripto spot, serta insinyur server game multiplayer berusia 18 tahun yang berdomisili di Ponorogo, Jawa Timur. Berdedikasi untuk membangun aplikasi web cepat, mengkustomisasi server Minecraft Fabric performa tinggi, dan menganalisis dinamika pasar saham & kripto.",
   },
   highlights: {
     en: [

@@ -34,7 +34,7 @@ export default function Hero() {
                 {t("hero.greeting")}
               </p>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 dark:text-slate-100 leading-tight">
-                {profile.fullName} <span className="text-emerald-500 font-extrabold">("{profile.displayName}")</span>
+                {profile.fullName} <span className="text-emerald-500 font-extrabold"></span>
               </h1>
               <p className="text-xl sm:text-2xl font-medium text-slate-600 dark:text-slate-300 max-w-2xl">
                 {t("hero.tagline")}

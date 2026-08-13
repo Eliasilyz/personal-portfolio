@@ -25,7 +25,7 @@ export default function About() {
     {
       icon: LineChart,
       title: t("about.quickStats.markets"),
-      desc: "Stockbit, Binance, Pintu, Jago",
+      desc: "Stockbit, Binance",
       color: "text-amber-500",
     },
   ];

@@ -104,7 +104,7 @@ export default function Contact() {
                   </a>
 
                   <a
-                    href="https://t.me/farel_hanafi"
+                    href="https://t.me/ffarelh"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-3 rounded-xl bg-sky-500/10 border border-sky-500/30 text-sky-600 dark:text-sky-400 hover:bg-sky-500 hover:text-slate-950 transition-all flex items-center justify-between font-bold text-xs group"

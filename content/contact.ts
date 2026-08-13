@@ -12,29 +12,29 @@ export interface ContactInfo {
 }
 
 export const contact: ContactInfo = {
-  email: "irvanfarael.hanafi@gmail.com",
+  email: "farellh12@gmail.com",
   location: "Ponorogo, East Java, Indonesia",
-  formActionUrl: "https://formspree.io/f/sample_form_id", // Replace with real Formspree endpoint if desired
+  formActionUrl: "https://formspree.io/f/xnpavyle", // Replace with real Formspree endpoint if desired
   socials: [
     {
       platform: "GitHub",
-      username: "@farel-dev",
-      url: "https://github.com/farel-dev",
+      username: "@Eliasilyz",
+      url: "https://github.com/Eliasilyz",
     },
     {
-      platform: "X / Twitter",
-      username: "@farel_dev",
-      url: "https://x.com/farel_dev",
+      platform: "Linkedin",
+      username: "@farel-hanafi",
+      url: "https://www.linkedin.com/in/farel-hanafi/",
     },
     {
       platform: "Stockbit",
-      username: "@farel",
-      url: "https://stockbit.com/#/farel",
+      username: "@FarelHanafi",
+      url: "https://stockbit.com/FarelHanafi",
     },
     {
       platform: "Telegram",
-      username: "@farel_hanafi",
-      url: "https://t.me/farel_hanafi",
+      username: "@ffarelh",
+      url: "https://t.me/ffarelh",
     },
   ],
 };
