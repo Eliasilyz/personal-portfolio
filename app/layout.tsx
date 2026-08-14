@@ -1,5 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
 import { ThemeProvider } from "../lib/ThemeProvider";
 import { LanguageProvider } from "../lib/LanguageProvider";
 import Header from "../components/Header";
@@ -117,6 +118,7 @@ export default function RootLayout({
           <main className="flex-1 w-full">{children}</main>
           <Footer />
           <MusicPlayer />
+          <Analytics />
         </ThemeProvider>
       </LanguageProvider>
     </div>
