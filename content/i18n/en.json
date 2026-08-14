@@ -1,0 +1,99 @@
+{
+  "nav": {
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "journey": "Journey",
+    "play": "Minigame",
+    "links": "Links",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hello, I'm",
+    "tagline": "Self-directed developer, trader, and builder",
+    "badge": "18 y/o • Ponorogo, East Java, Indonesia",
+    "viewProjects": "View Projects",
+    "contactMe": "Contact Me",
+    "availableForWork": "Available for projects & collaboration"
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "Developer, game server engineer, and market trader",
+    "quickStats": {
+      "experience": "3+ Years Coding",
+      "projects": "15+ Repos & Apps",
+      "markets": "Stock & Crypto Spot Trader",
+      "minecraft": "Custom Fabric Engineer"
+    }
+  },
+  "skills": {
+    "title": "Technical Skills & Focus Areas",
+    "subtitle": "Core disciplines, tools, and platforms I work with daily"
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "subtitle": "Selected repositories, web applications, and game server setups",
+    "all": "All",
+    "viewCode": "Code",
+    "viewLive": "Live Demo",
+    "serverStatus": "Server Info"
+  },
+  "journey": {
+    "title": "Journey & Milestones",
+    "subtitle": "Key moments in software engineering, game modding, and trading"
+  },
+  "game": {
+    "title": "Market Dodger",
+    "subtitle": "Avoid red candles & bug blocks, collect green candles & code coins!",
+    "score": "Score",
+    "highScore": "High Score",
+    "start": "Play Game",
+    "restart": "Play Again",
+    "howToPlay": "How to Play",
+    "instructions": "Use Spacebar / Up Arrow or tap screen to Jump. Collect Green Candles (+10) and Code Gems (+25). Avoid Red Candles and Glitch Blocks!",
+    "gameOver": "Game Over!"
+  },
+  "links": {
+    "title": "Links & Platforms",
+    "subtitle": "Connect with me across GitHub, social channels, and trading platforms"
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "subtitle": "Have a project idea, business inquiry, or collaboration in mind?",
+    "namePlaceholder": "Your Name",
+    "emailPlaceholder": "Your Email",
+    "messagePlaceholder": "Your Message",
+    "send": "Send Message via Email",
+    "copyEmail": "Copy Email Address",
+    "copied": "Copied to Clipboard!",
+    "directEmail": "Direct Email",
+    "location": "Location"
+  },
+  "music": {
+    "title": "Music Player",
+    "nowPlaying": "Now Playing",
+    "play": "Play",
+    "pause": "Pause",
+    "next": "Next Track",
+    "prev": "Previous Track",
+    "volume": "Volume",
+    "minimize": "Minimize",
+    "expand": "Open Music Player & Search",
+    "loading": "Loading Music...",
+    "searchPlaceholder": "Search track, artist, or album...",
+    "searchResults": "Search Results",
+    "noResults": "No songs found. Try a different keyword.",
+    "playlist": "Playlist",
+    "searchTab": "Search Music",
+    "featuredTab": "Preset Playlist",
+    "searchPrompt": "Type a track or artist name above to search for music",
+    "searching": "Searching music...",
+    "errorAudio": "Failed to load audio. Trying another track...",
+    "clearSearch": "Clear search"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "builtWith": "Built with Next.js, React, TypeScript & Tailwind CSS.",
+    "backToTop": "Back to Top"
+  }
+}
