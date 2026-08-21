@@ -114,7 +114,7 @@ export default function MusicPlayer() {
     return `${mins}:${secs < 10 ? "0" : ""}${secs}`;
   };
 
-  // Initialize YouTube IFrame API
+  // Initialize YouTube IFrame API (Lazy loaded to prevent Googlebot third-party blocking & CORS errors)
   useEffect(() => {
     const initPlayer = () => {
       if (!window.YT || !window.YT.Player) return;
@@ -126,6 +126,7 @@ export default function MusicPlayer() {
 
       try {
         ytPlayerRef.current = new window.YT.Player(playerContainerId, {
+          host: "https://www.youtube-nocookie.com",
           height: "100%",
           width: "100%",
           videoId: currentTrack.youtubeId,
@@ -137,6 +138,9 @@ export default function MusicPlayer() {
             modestbranding: 1,
             rel: 0,
             playsinline: 1,
+            enablejsapi: 1,
+            origin: typeof window !== "undefined" ? window.location.origin : undefined,
+            widget_referrer: typeof window !== "undefined" ? window.location.origin : undefined,
           },
           events: {
             onReady: (event: any) => {
@@ -163,25 +167,33 @@ export default function MusicPlayer() {
       }
     };
 
-    if (window.YT && window.YT.Player) {
-      initPlayer();
-    } else {
-      if (!document.getElementById("yt-iframe-api")) {
-        const tag = document.createElement("script");
-        tag.id = "yt-iframe-api";
-        tag.src = "https://www.youtube.com/iframe_api";
-        const firstScriptTag = document.getElementsByTagName("script")[0];
-        firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);
-      }
-
-      const prevOnReady = window.onYouTubeIframeAPIReady;
-      window.onYouTubeIframeAPIReady = () => {
-        if (prevOnReady) prevOnReady();
+    const loadScriptAndInit = () => {
+      if (window.YT && window.YT.Player) {
         initPlayer();
-      };
-    }
+      } else {
+        if (!document.getElementById("yt-iframe-api")) {
+          const tag = document.createElement("script");
+          tag.id = "yt-iframe-api";
+          tag.src = "https://www.youtube.com/iframe_api";
+          const firstScriptTag = document.getElementsByTagName("script")[0];
+          firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);
+        }
+
+        const prevOnReady = window.onYouTubeIframeAPIReady;
+        window.onYouTubeIframeAPIReady = () => {
+          if (prevOnReady) prevOnReady();
+          initPlayer();
+        };
+      }
+    };
+
+    // Delay loading YouTube API by 2.5s for clean initial page load & Googlebot audit
+    const lazyTimer = setTimeout(() => {
+      loadScriptAndInit();
+    }, 2500);
 
     return () => {
+      clearTimeout(lazyTimer);
       if (timerRef.current) clearInterval(timerRef.current);
     };
   }, []);
