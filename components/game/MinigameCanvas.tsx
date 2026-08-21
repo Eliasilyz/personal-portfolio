@@ -204,6 +204,7 @@ export default function MinigameCanvas() {
     if (!ctx) return;
 
     const groundY = canvas.height - 40;
+    const isDark = typeof document !== "undefined" && document.documentElement.classList.contains("dark");
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.code === "Space" || e.code === "ArrowUp" || e.code === "KeyW") {
@@ -222,7 +223,6 @@ export default function MinigameCanvas() {
       speedRef.current = 5.5 + Math.floor(scoreRef.current / 100) * 0.4;
 
       // Clear Canvas
-      const isDark = document.documentElement.classList.contains("dark");
       ctx.fillStyle = isDark ? "#0f172a" : "#f8fafc";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
