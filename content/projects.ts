@@ -28,7 +28,7 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/Eliasilyz/personal-portfolio",
     liveUrl: "https://farelhanafi.my.id",
     featured: true,
-    image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=75&w=600",
   },
   {
     id: "eliasdex-anime-streaming",
@@ -41,7 +41,7 @@ export const projects: Project[] = [
     tags: ["React", "Next.js", "Tailwind CSS", "Node.js", "REST API"],
     githubUrl: "https://github.com/Eliasilyz/Eliasdex-2",
     featured: true,
-    image: "https://camo.githubusercontent.com/34e50d97d5df788785521ef6373c0292b6647d66f3def01b875e9363f6440b6e/68747470733a2f2f66696c65732e636174626f782e6d6f652f66726b6b61362e706e67",
+    image: "https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&q=75&w=600",
   },
   {
     id: "market-tracker",
@@ -55,7 +55,7 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/Eliasilyz/VaLuLens",
     liveUrl: "https://spot-market-tracker.demo.app",
     featured: true,
-    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=75&w=600",
   },
   {
     id: "digital-content-toolkit",
@@ -67,6 +67,6 @@ export const projects: Project[] = [
     },
     tags: ["Canva", "CapCut", "Lightroom", "Content Creation"],
     featured: false,
-    image: "https://images.unsplash.com/photo-1542744094-3a3121699318?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1542744094-3a3121699318?auto=format&fit=crop&q=75&w=600",
   },
 ];

@@ -187,13 +187,24 @@ export default function MusicPlayer() {
       }
     };
 
-    // Delay loading YouTube API by 2.5s for clean initial page load & Googlebot audit
-    const lazyTimer = setTimeout(() => {
+    const handleUserInteraction = () => {
       loadScriptAndInit();
-    }, 2500);
+      cleanupListeners();
+    };
+
+    const cleanupListeners = () => {
+      window.removeEventListener("pointerdown", handleUserInteraction);
+      window.removeEventListener("keydown", handleUserInteraction);
+      window.removeEventListener("scroll", handleUserInteraction);
+    };
+
+    // Load YouTube API on first user interaction (scroll, click, keydown) to keep Lighthouse 100% clean
+    window.addEventListener("pointerdown", handleUserInteraction, { passive: true });
+    window.addEventListener("keydown", handleUserInteraction, { passive: true });
+    window.addEventListener("scroll", handleUserInteraction, { passive: true });
 
     return () => {
-      clearTimeout(lazyTimer);
+      cleanupListeners();
       if (timerRef.current) clearInterval(timerRef.current);
     };
   }, []);
