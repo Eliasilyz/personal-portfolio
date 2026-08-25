@@ -53,7 +53,7 @@ export const projects: Project[] = [
     },
     tags: ["Trading", "Stockbit", "Technical Analysis", "React"],
     githubUrl: "https://github.com/Eliasilyz/VaLuLens",
-    liveUrl: "https://spot-market-tracker.demo.app",
+    liveUrl: "https://funda.farelhanafi.my.id/",
     featured: true,
     image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=480&q=60&fm=webp",
   },
