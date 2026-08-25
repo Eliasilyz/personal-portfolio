@@ -2,6 +2,43 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+:root {
+  --ink: #0f0d0a;
+  --paper: #f7f4ef;
+  --paper-dim: #ebe8e1;
+  --amber: #c8860a;
+  --amber-light: #e8a020;
+  --muted: #7a7368;
+  --border: #d4cfc6;
+  --font-display: 'Newsreader', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+.dark {
+  --ink: #f0ece4;
+  --paper: #100e0b;
+  --paper-dim: #1a1714;
+  --amber: #e8a020;
+  --amber-light: #f0bc50;
+  --muted: #8a8278;
+  --border: #2a2620;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--paper);
+  color: var(--ink);
+}
+
 @layer utilities {
   @keyframes spinSlow {
     from {
