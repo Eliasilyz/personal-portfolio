@@ -9,6 +9,13 @@ import MusicPlayer from "../components/MusicPlayer";
 import { profile } from "../content/profile";
 
 export const metadata: Metadata = {
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: [{ url: "/icon.svg" }],
+  },
   title: `${profile.fullName} (${profile.displayName}) — Software Developer | Ponorogo`,
   description: `${profile.fullName} (Farel) is an 18-year-old self-directed software developer and multiplayer game server engineer based in Ponorogo, East Java, Indonesia. Focused on building performant, accessible web applications.`,
   keywords: [
