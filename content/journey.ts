@@ -1,5 +1,3 @@
-// TODO: replace with real data
-
 export interface Milestone {
   id: string;
   year: string;
@@ -7,7 +5,7 @@ export interface Milestone {
     en: string;
     id: string;
   };
-  category: "Coding" | "Game Engineering" | "Trading" | "Milestone";
+  category: "Coding" | "Game Engineering" | "Milestone";
   description: {
     en: string;
     id: string;
@@ -23,24 +21,24 @@ export const journey: Milestone[] = [
     id: "m4",
     year: "2025 - Present",
     title: {
-      en: "Advanced Web Apps & Algorithmic Spot Trading",
-      id: "Aplikasi Web Lanjutan & Trading Spot Algoritmik",
+      en: "Advanced Web Apps & Frontend Architecture",
+      id: "Aplikasi Web Lanjutan & Arsitektur Frontend",
     },
-    category: "Trading",
+    category: "Coding",
     description: {
-      en: "Scaling personal web projects with modern frontend tech stacks (Next.js, TypeScript, Tailwind) while actively managing spot stock portfolios on Stockbit and crypto assets on Binance & Pintu.",
-      id: "Mengembangkan proyek web pribadi dengan stack modern (Next.js, TypeScript, Tailwind) sembari mengelola portofolio saham spot di Stockbit dan aset kripto di Binance & Pintu secara aktif.",
+      en: "Scaling personal web projects with modern frontend stacks (Next.js, TypeScript, Tailwind) and a strong focus on performance, accessibility, and maintainable architecture.",
+      id: "Mengembangkan proyek web pribadi dengan stack modern (Next.js, TypeScript, Tailwind) dengan fokus pada performa, aksesibilitas, dan arsitektur yang terawat.",
     },
     highlights: {
       en: [
-        "Achieved consistent trading journal tracking across spot markets",
-        "Developed custom dashboard utilities for price trend evaluation",
         "Built modular Next.js application architectures",
+        "Improved Core Web Vitals and accessibility scores across projects",
+        "Developed reusable component labs and API utilities",
       ],
       id: [
-        "Mencapai pelacakan jurnal trading konsisten di pasar spot",
-        "Membangun alat dashboard kustom untuk evaluasi tren harga",
-        "Membuat arsitektur aplikasi Next.js modular",
+        "Membuat arsitektur aplikasi Next.js yang modular",
+        "Meningkatkan Core Web Vitals dan skor aksesibilitas di berbagai proyek",
+        "Mengembangkan lab komponen reusable dan utilitas API",
       ],
     },
   },
@@ -73,22 +71,22 @@ export const journey: Milestone[] = [
     id: "m2",
     year: "2023",
     title: {
-      en: "Market Entry: Spot Trading & Financial Analysis",
-      id: "Memulai Trading Spot & Analisis Keuangan",
+      en: "Deepening Frontend Fundamentals & Open Source",
+      id: "Memperdalam Fundamental Frontend & Open Source",
     },
-    category: "Trading",
+    category: "Coding",
     description: {
-      en: "Began deep dive into Indonesian equities on Stockbit and cryptocurrency spot markets on Binance & Pintu with strict risk management discipline.",
-      id: "Mulai mendalami saham Indonesia di Stockbit dan pasar spot kripto di Binance & Pintu dengan disiplin manajemen risiko yang ketat.",
+      en: "Focused on deepening JavaScript/TypeScript fundamentals, React patterns, and contributing to open-source web tooling while shipping personal products.",
+      id: "Fokus memperdalam fundamental JavaScript/TypeScript, pola React, dan berkontribusi pada tooling web open-source sambil merilis produk pribadi.",
     },
     highlights: {
       en: [
-        "Learned price action charting, volume profile, and market structure",
-        "Integrated Bank Jago digital banking for liquidity & cash management",
+        "Mastered modern React patterns and TypeScript architecture",
+        "Published utilities and documented component APIs",
       ],
       id: [
-        "Mempelajari grafik price action, volume profile, dan struktur pasar",
-        "Mengintegrasikan bank digital Bank Jago untuk pengelolaan likuiditas & kas",
+        "Menguasai pola React modern dan arsitektur TypeScript",
+        "Merilis utilitas dan mendokumentasikan API komponen",
       ],
     },
   },

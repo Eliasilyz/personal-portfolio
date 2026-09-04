@@ -10,7 +10,7 @@
   },
   "hero": {
     "greeting": "Halo, saya",
-    "tagline": "Pengembang mandiri, trader, dan pembuat karya digital",
+    "tagline": "Pengembang mandiri dan pembuat karya digital",
     "badge": "18 tahun • Ponorogo, Jawa Timur, Indonesia",
     "viewProjects": "Lihat Proyek",
     "contactMe": "Hubungi Saya",
@@ -18,11 +18,11 @@
   },
   "about": {
     "title": "Tentang Saya",
-    "subtitle": "Pengembang web, insinyur server game, dan trader pasar keuangan",
+    "subtitle": "Pengembang web dan insinyur server game yang fokus pada produk web yang bersih dan performant",
     "quickStats": {
       "experience": "3+ Tahun Coding",
       "projects": "15+ Repositori & Aplikasi",
-      "markets": "Trader Saham & Kripto Spot",
+      "focus": "Performa Web & DX",
       "minecraft": "Pengembang Mod Fabric"
     }
   },
@@ -32,7 +32,7 @@
   },
   "projects": {
     "title": "Proyek Pilihan",
-    "subtitle": "Kumpulan repositori, aplikasi web, dan konfigurasi server game",
+    "subtitle": "Kumpulan repositori, aplikasi web, dan tooling pengembang",
     "all": "Semua",
     "viewCode": "Kode",
     "viewLive": "Demo Langsung",
@@ -40,26 +40,33 @@
   },
   "journey": {
     "title": "Perjalanan & Pencapaian",
-    "subtitle": "Momen penting dalam rekayasa perangkat lunak, modding game, dan trading"
+    "subtitle": "Momen penting dalam rekayasa perangkat lunak dan pengembangan server game"
   },
   "game": {
-    "title": "Market Dodger",
-    "subtitle": "Hindari candle merah & bug block, kumpulkan candle hijau & koin kode!",
+    "title": "Code Dodger",
+    "subtitle": "Hindari bug block dan kumpulkan permata kode — runner ringan bertema dev!",
     "score": "Skor",
     "highScore": "Skor Tertinggi",
     "start": "Mulai Game",
     "restart": "Main Lagi",
     "howToPlay": "Cara Bermain",
-    "instructions": "Gunakan Spasi / Panah Atas atau ketuk layar untuk Melompat. Kumpulkan Candle Hijau (+10) dan Permata Kode (+25). Hindari Candle Merah dan Glitch Block!",
+    "instructions": "Gunakan Spasi / Panah Atas atau ketuk layar untuk Melompat. Kumpulkan Permata Kode (+25) dan Power Chip (+10). Hindari Bug Block dan Glitch Wall!",
     "gameOver": "Permainan Selesai!"
   },
   "links": {
     "title": "Tautan & Platform",
-    "subtitle": "Terhubung dengan saya di GitHub, media sosial, dan platform trading"
+    "subtitle": "Terhubung dengan saya di GitHub dan platform developer"
+  },
+  "githubStats": {
+    "years": "tahun di GitHub",
+    "publicRepos": "repositori publik",
+    "stars": "bintang terkumpul",
+    "followers": "pengikut",
+    "live": "GitHub — live build-time"
   },
   "contact": {
     "title": "Hubungi Saya",
-    "subtitle": "Memiliki ide proyek, pertanyaan bisnis, atau ingin berkolaborasi?",
+    "subtitle": "Memiliki ide proyek, pertanyaan engineering, atau ingin berkolaborasi?",
     "namePlaceholder": "Nama Anda",
     "emailPlaceholder": "Email Anda",
     "messagePlaceholder": "Pesan Anda",

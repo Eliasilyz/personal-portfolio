@@ -1,9 +1,7 @@
-// TODO: replace with real data
-
 export interface Project {
   id: string;
   title: string;
-  category: "Web App" | "Game Server" | "Trading Tool" | "Utility";
+  category: "Web App" | "Game Server" | "Dev Tool" | "Utility";
   description: {
     en: string;
     id: string;
@@ -28,7 +26,7 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/Eliasilyz/personal-portfolio",
     liveUrl: "https://farelhanafi.my.id",
     featured: true,
-    image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=480&q=60&fm=webp",
+    image: "https://files.catbox.moe/gn2mdb.png",
   },
   {
     id: "eliasdex-anime-streaming",
@@ -40,33 +38,36 @@ export const projects: Project[] = [
     },
     tags: ["React", "Next.js", "Tailwind CSS", "Node.js", "REST API"],
     githubUrl: "https://github.com/Eliasilyz/Eliasdex-2",
+    liveUrl: "https://eliasdex.vercel.app",
     featured: true,
     image: "https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=480&q=60&fm=webp",
   },
   {
-    id: "market-tracker",
-    title: "Market Analytics Dashboard",
-    category: "Trading Tool",
+    id: "devtoolkit-api",
+    title: "Dev Toolkit — API & Component Lab",
+    category: "Dev Tool",
     description: {
-      en: "Personal trading journal and spot market analysis dashboard aggregating data from Stockbit with technical indicator calculations.",
-      id: "Jurnal trading pribadi dan dashboard analisis pasar spot yang mengagregasikan data dari Stockbit dengan kalkulasi indikator teknis.",
+      en: "Local-first developer toolkit for testing REST APIs, previewing UI components, and profiling web performance with a clean, keyboard-driven workflow.",
+      id: "Toolkit pengembang local-first untuk menguji REST API, pratinjau komponen UI, dan profiling performa web dengan alur kerja berbasis keyboard yang bersih.",
     },
-    tags: ["Trading", "Stockbit", "Technical Analysis", "React"],
+    tags: ["TypeScript", "React", "Performance", "DX"],
+    githubUrl: "https://github.com/Eliasilyz/DevApi-HUB",
+    featured: true,
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=480&q=60&fm=webp",
+  },
+  {
+    id: "fundamentals-of-stock-market",
+    title: "Fundamentals of Stock Market",
+    category: "Web App",
+    description: {
+      en: "Educational web application for learning the fundamentals of stock market investing.",
+      id: "Aplikasi web edukasi untuk mempelajari dasar-dasar investasi saham.",
+    },
+    tags: ["TypeScript", "React", "Performance", "DX"],
     githubUrl: "https://github.com/Eliasilyz/VaLuLens",
     liveUrl: "https://funda.farelhanafi.my.id/",
     featured: true,
-    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=480&q=60&fm=webp",
+    image: "https://files.catbox.moe/uca0jw.png",
   },
-  {
-    id: "digital-content-toolkit",
-    title: "Creative Content & Branding Presets",
-    category: "Utility",
-    description: {
-      en: "Curated collection of Canva graphic templates, Lightroom color grading presets, and CapCut video editing motion overlays for digital media.",
-      id: "Koleksi kurasi templat grafis Canva, preset pewarnaan Lightroom, dan templat animasi CapCut untuk media digital.",
-    },
-    tags: ["Canva", "CapCut", "Lightroom", "Content Creation"],
-    featured: false,
-    image: "https://images.unsplash.com/photo-1542744094-3a3121699318?auto=format&fit=crop&w=480&q=60&fm=webp",
-  },
+
 ];

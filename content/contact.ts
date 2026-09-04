@@ -1,9 +1,7 @@
-// TODO: replace with real data
-
 export interface ContactInfo {
   email: string;
   location: string;
-  formActionUrl?: string; // Formspree or static endpoint URL
+  formActionUrl?: string;
   socials: {
     platform: string;
     username: string;
@@ -14,7 +12,7 @@ export interface ContactInfo {
 export const contact: ContactInfo = {
   email: "farellh12@gmail.com",
   location: "Ponorogo, East Java, Indonesia",
-  formActionUrl: "https://formspree.io/f/xnpavyle", // Replace with real Formspree endpoint if desired
+  formActionUrl: "https://formspree.io/f/xnpavyle",
   socials: [
     {
       platform: "GitHub",
@@ -27,9 +25,9 @@ export const contact: ContactInfo = {
       url: "https://www.linkedin.com/in/farel-hanafi/",
     },
     {
-      platform: "Stockbit",
-      username: "@FarelHanafi",
-      url: "https://stockbit.com/FarelHanafi",
+      platform: "Website",
+      username: "farelhanafi.my.id",
+      url: "https://www.farelhanafi.my.id",
     },
     {
       platform: "Telegram",

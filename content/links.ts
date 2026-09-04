@@ -1,9 +1,7 @@
-// TODO: replace with real data
-
 export interface LinkItem {
   id: string;
   title: string;
-  category: "Social & Code" | "Trading Platforms" | "Game & Media";
+  category: "Social & Code" | "Game & Media";
   url: string;
   iconName: "github" | "twitter" | "linkedin" | "mail" | "trending-up" | "coins" | "gamepad" | "globe" | "share-2";
   description: {
@@ -27,16 +25,16 @@ export const links: LinkItem[] = [
     badge: "Active",
   },
   {
-    id: "stockbit",
-    title: "Stockbit Profile",
-    category: "Trading Platforms",
-    url: "https://stockbit.com/FarelHanafi",
-    iconName: "trending-up",
+    id: "portfolio",
+    title: "Portfolio Website",
+    category: "Social & Code",
+    url: "https://www.farelhanafi.my.id",
+    iconName: "globe",
     description: {
-      en: "Indonesian stock market community analysis, stream posts, and spot watchlists",
-      id: "Analisis komunitas pasar saham Indonesia, postingan stream, dan daftar pantau",
+      en: "Personal portfolio — web experiments, writing, and project showcase",
+      id: "Portfolio pribadi — eksperimen web, tulisan, dan showcase proyek",
     },
-    badge: "IHSG Spot",
+    badge: "Live",
   },
   {
     id: "linkedin",
@@ -45,8 +43,8 @@ export const links: LinkItem[] = [
     url: "https://www.linkedin.com/in/farel-hanafi/",
     iconName: "linkedin",
     description: {
-      en: "Tech updates, market thoughts, game server news, and daily observations",
-      id: "Pembaruan teknologi, pemikiran pasar, kabar server game, dan catatan harian",
+      en: "Professional updates, engineering notes, and collaboration inquiries",
+      id: "Update profesional, catatan engineering, dan inquiry kolaborasi",
     },
   },
 ];

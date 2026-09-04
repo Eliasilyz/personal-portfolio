@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState } from "react";
-import { Mail, Copy, Check, MapPin, Send, MessageSquare, ExternalLink, ArrowUpRight } from "lucide-react";
+import { Mail, Copy, Check, MapPin, Send, MessageSquare, ArrowUpRight } from "lucide-react";
 import { contact } from "../../content/contact";
 import { useLanguage } from "../../lib/LanguageProvider";
 
@@ -11,10 +11,12 @@ export default function Contact() {
   const [copiedMessage, setCopiedMessage] = useState(false);
   const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
 
-  const copyEmailToClipboard = () => {
-    navigator.clipboard.writeText(contact.email);
-    setCopiedEmail(true);
-    setTimeout(() => setCopiedEmail(false), 2500);
+  const copyEmailToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(contact.email);
+      setCopiedEmail(true);
+      setTimeout(() => setCopiedEmail(false), 2500);
+    } catch {}
   };
 
   const handleMailtoSubmit = (e: React.FormEvent) => {
@@ -25,218 +27,123 @@ export default function Contact() {
     window.location.href = mailtoUrl;
   };
 
-  const handleCopyFormattedMessage = () => {
+  const handleCopyFormattedMessage = async () => {
     if (!formData.message.trim()) return;
     const formatted = `Hi Farel,\n\n${formData.message}\n\nBest regards,\n${formData.name || 'Visitor'} (${formData.email || 'No email provided'})`;
-    navigator.clipboard.writeText(formatted);
-    setCopiedMessage(true);
-    setTimeout(() => setCopiedMessage(false), 2500);
+    try {
+      await navigator.clipboard.writeText(formatted);
+      setCopiedMessage(true);
+      setTimeout(() => setCopiedMessage(false), 2500);
+    } catch {}
   };
 
+  const inputBase = "w-full px-4 py-3 rounded-full bg-white border border-black/10 text-sm text-black placeholder:text-[#6b6560] focus:outline-none focus:border-[var(--amber)] transition-colors duration-150";
+
   return (
-    <section id="contact" className="py-16 md:py-24 border-t border-slate-200/80 dark:border-slate-800/80">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        {/* Header */}
-        <div className="space-y-3 text-center md:text-left">
-          <div className="inline-flex items-center space-x-2 text-xs font-mono font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
-            <Mail className="w-4 h-4" />
-            <span>{t("contact.title")}</span>
+    <section id="contact" className="section-ink relative overflow-hidden py-16 md:py-24">
+      {/* terminal reticle */}
+      <div className="absolute top-6 right-6 hidden md:flex items-center gap-2 text-white/20 font-mono text-xs" aria-hidden>
+        <span>{"<>"}</span>
+        <span className="w-8 h-[1px] bg-white/15" />
+        <span className="w-2 h-2 rounded-full border border-white/20" />
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div className="space-y-2">
+            <div className="inline-flex px-3 py-1 rounded-full bg-[#e8a020] text-black text-xs font-mono font-bold tracking-widest">[06] / {t("contact.title")}</div>
+            <h2 className="text-3xl sm:text-5xl font-black tracking-tight leading-[0.9] text-[#f7f4ef]" style={{ fontFamily: "var(--font-display)" }}>
+              Let&apos;s build<br />
+              <span className="italic font-light text-[#f7f4ef]/70">together</span>
+            </h2>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-slate-100 tracking-tight">
-            Let's Build Something Together
-          </h2>
-          <p className="text-base text-slate-600 dark:text-slate-400 max-w-2xl">
-            {t("contact.subtitle")} (Static site ready: messaging directly launches your mail client or Telegram)
-          </p>
+          <p className="text-sm font-mono text-white/60 max-w-md md:text-right">{t("contact.subtitle")}</p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Direct Channels & Contact Card */}
-          <div className="lg:col-span-5 space-y-6">
-            <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
-              {/* Direct Email Card */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+          <div className="lg:col-span-5 space-y-4">
+            <div className="rounded-[32px] bg-white text-black p-6 space-y-5">
               <div className="space-y-2">
-                <span className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider">
-                  {t("contact.directEmail")}
-                </span>
-                <div className="flex items-center justify-between p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 font-mono text-xs sm:text-sm text-slate-900 dark:text-slate-100 break-all">
-                  <span>{contact.email}</span>
+                <span className="text-xs font-mono uppercase tracking-widest opacity-60">{t("contact.directEmail")}</span>
+                <div className="flex items-center gap-2 p-2 pl-4 rounded-full bg-black text-white font-mono text-sm">
+                  <span className="truncate flex-1">{contact.email}</span>
                   <button
                     onClick={copyEmailToClipboard}
-                    className="p-2 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500 hover:text-slate-950 transition-colors shrink-0 ml-2"
+                    className="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center hover:bg-[var(--amber)] transition-colors shrink-0"
                     aria-label={t("contact.copyEmail")}
-                    title={t("contact.copyEmail")}
                   >
-                    {copiedEmail ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                    {copiedEmail ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
                   </button>
                 </div>
-                {copiedEmail && (
-                  <p className="text-xs text-emerald-500 font-mono font-semibold animate-fadeIn">
-                    ✓ {t("contact.copied")}
-                  </p>
-                )}
+                {copiedEmail && <p className="text-xs font-mono text-green-600" role="status">✓ {t("contact.copied")}</p>}
               </div>
 
-              {/* Location Card */}
-              <div className="space-y-2">
-                <span className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider">
-                  {t("contact.location")}
+              <div className="flex items-center gap-3 p-3 rounded-full bg-black/5 border border-black/10">
+                <span className="w-8 h-8 rounded-full bg-[var(--amber)] flex items-center justify-center">
+                  <MapPin className="w-4 h-4 text-black" />
                 </span>
-                <div className="flex items-center space-x-2 text-sm text-slate-700 dark:text-slate-300 font-medium p-3 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-800">
-                  <MapPin className="w-4 h-4 text-emerald-500 shrink-0" />
-                  <span>{contact.location}</span>
-                </div>
+                <span className="text-sm font-mono">{contact.location}</span>
               </div>
 
-              {/* Quick Messaging Actions */}
-              <div className="space-y-3 pt-2">
-                <span className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider">
-                  Instant Reach Out
-                </span>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                  <a
-                    href={`mailto:${contact.email}`}
-                    className="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500 hover:text-slate-950 transition-all flex items-center justify-between font-bold text-xs group"
-                  >
-                    <div className="flex items-center space-x-2">
-                      <Mail className="w-4 h-4" />
-                      <span>Mail App</span>
-                    </div>
-                    <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              <div className="grid grid-cols-2 gap-2">
+                <a href={`mailto:${contact.email}`} className="flex items-center justify-center gap-1.5 py-3 rounded-full bg-black text-white text-xs font-mono hover:bg-[var(--amber)] hover:text-black transition-colors">
+                  <Mail className="w-3.5 h-3.5" /> Mail <ArrowUpRight className="w-3 h-3 opacity-60" />
+                </a>
+                <a href="https://t.me/ffarelh" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1.5 py-3 rounded-full border border-black/10 text-xs font-mono hover:border-black transition-colors">
+                  <MessageSquare className="w-3.5 h-3.5" /> Telegram <ArrowUpRight className="w-3 h-3 opacity-60" />
+                </a>
+              </div>
+
+              <div className="flex flex-wrap gap-2 pt-2 border-t border-black/10">
+                {contact.socials.map((soc) => (
+                  <a key={soc.platform} href={soc.url} target="_blank" rel="noopener noreferrer" className="px-3 py-1.5 rounded-full bg-black text-white text-xs font-mono hover:bg-[var(--amber)] hover:text-black transition-colors">
+                    {soc.platform} <span className="opacity-60">· {soc.username}</span>
                   </a>
-
-                  <a
-                    href="https://t.me/ffarelh"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-3 rounded-xl bg-sky-500/10 border border-sky-500/30 text-sky-600 dark:text-sky-400 hover:bg-sky-500 hover:text-slate-950 transition-all flex items-center justify-between font-bold text-xs group"
-                  >
-                    <div className="flex items-center space-x-2">
-                      <MessageSquare className="w-4 h-4" />
-                      <span>Telegram</span>
-                    </div>
-                    <ExternalLink className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                  </a>
-                </div>
-              </div>
-
-              {/* Social Channels */}
-              <div className="space-y-3 border-t border-slate-100 dark:border-slate-800 pt-4">
-                <span className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider">
-                  Social Channels
-                </span>
-                <div className="grid grid-cols-2 gap-2 text-xs font-medium">
-                  {contact.socials.map((soc) => (
-                    <a
-                      key={soc.platform}
-                      href={soc.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:border-emerald-500 transition-colors flex items-center justify-between group"
-                    >
-                      <span className="group-hover:text-emerald-500 transition-colors">{soc.platform}</span>
-                      <span className="text-emerald-500 font-mono text-[11px]">{soc.username}</span>
-                    </a>
-                  ))}
-                </div>
+                ))}
               </div>
             </div>
           </div>
 
-          {/* Contact Form (Static Mailto / Copy Form) */}
           <div className="lg:col-span-7">
-            <form
-              onSubmit={handleMailtoSubmit}
-              className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4"
-            >
-              <div className="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-slate-800">
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-slate-400">
-                  Send Message
-                </span>
-                <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
-                  Static / GitHub Pages Ready
-                </span>
+            <form onSubmit={handleMailtoSubmit} className="rounded-[32px] bg-white text-black p-6 sm:p-7 space-y-4" noValidate aria-labelledby="contact-form-heading">
+              <h3 id="contact-form-heading" className="sr-only">Contact form — required fields marked with star</h3>
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-mono uppercase tracking-widest opacity-60">Send Message</span>
+                <span className="text-[11px] font-mono px-3 py-1 rounded-full bg-black text-white">Static / No backend</span>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div className="space-y-1.5">
-                  <label className="text-xs font-mono font-bold text-slate-700 dark:text-slate-300">
-                    {t("contact.namePlaceholder")}
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
-                    placeholder="Your Name"
-                  />
+                  <label htmlFor="contact-name" className="text-xs font-mono opacity-60">{t("contact.namePlaceholder")} <span aria-hidden="true" className="text-[#e8a020]">*</span></label>
+                  <input id="contact-name" name="name" type="text" required aria-required="true" autoComplete="name" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className={inputBase} placeholder="Your Name" />
                 </div>
-
                 <div className="space-y-1.5">
-                  <label className="text-xs font-mono font-bold text-slate-700 dark:text-slate-300">
-                    {t("contact.emailPlaceholder")}
-                  </label>
-                  <input
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
-                    placeholder="yourname@example.com"
-                  />
+                  <label htmlFor="contact-email" className="text-xs font-mono opacity-60">{t("contact.emailPlaceholder")} <span aria-hidden="true" className="text-[#e8a020]">*</span></label>
+                  <input id="contact-email" name="email" type="email" required aria-required="true" autoComplete="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className={inputBase} placeholder="yourname@example.com" />
                 </div>
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-xs font-mono font-bold text-slate-700 dark:text-slate-300">
-                  Subject (Optional)
-                </label>
-                <input
-                  type="text"
-                  value={formData.subject}
-                  onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
-                  placeholder="Project Collaboration / Inquiries"
-                />
+                <label htmlFor="contact-subject" className="text-xs font-mono opacity-60">Subject (optional)</label>
+                <input id="contact-subject" name="subject" type="text" value={formData.subject} onChange={(e) => setFormData({ ...formData, subject: e.target.value })} className={`${inputBase} rounded-full`} placeholder="Project Collaboration / Inquiry" />
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-xs font-mono font-bold text-slate-700 dark:text-slate-300">
-                  {t("contact.messagePlaceholder")}
-                </label>
-                <textarea
-                  required
-                  rows={4}
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 resize-none"
-                  placeholder="Type your message here..."
-                />
+                  <label htmlFor="contact-message" className="text-xs font-mono opacity-60">{t("contact.messagePlaceholder")} <span aria-hidden="true" className="text-[#e8a020]">*</span></label>
+                  <textarea id="contact-message" name="message" required aria-required="true" rows={4} value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} className="w-full px-4 py-3 rounded-[24px] bg-white border border-black/10 text-sm text-black placeholder:text-[#6b6560] focus:outline-none focus:border-[var(--amber)] transition-colors resize-none" placeholder="Type your message here..." />
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-                <button
-                  type="submit"
-                  className="inline-flex items-center justify-center space-x-2 px-5 py-3 rounded-xl bg-slate-900 dark:bg-emerald-500 text-white dark:text-slate-950 font-bold text-xs hover:bg-slate-800 dark:hover:bg-emerald-400 transition-all shadow-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
-                >
-                  <Send className="w-4 h-4" />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                <button type="submit" className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[var(--amber)] text-black text-xs font-mono font-bold hover:bg-black hover:text-white transition-colors">
+                  <Send className="w-3.5 h-3.5" />
                   <span>Open Email Client</span>
                 </button>
-
-                <button
-                  type="button"
-                  onClick={handleCopyFormattedMessage}
-                  className="inline-flex items-center justify-center space-x-2 px-5 py-3 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 font-bold text-xs hover:bg-slate-200 dark:hover:bg-slate-700 transition-all focus:outline-none focus:ring-2 focus:ring-emerald-500"
-                >
-                  {copiedMessage ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
-                  <span>{copiedMessage ? "Copied Message!" : "Copy Formatted Text"}</span>
+                <button type="button" onClick={handleCopyFormattedMessage} className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-black/10 text-xs font-mono hover:border-black transition-colors">
+                  {copiedMessage ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+                  <span>{copiedMessage ? "Copied!" : "Copy Text"}</span>
                 </button>
               </div>
-
-              <p className="text-[11px] text-slate-500 dark:text-slate-400 font-mono text-center pt-1">
-                💡 Standard static behavior: "Open Email Client" launches your email app (Gmail/Outlook/Apple Mail) with pre-filled details. "Copy Formatted Text" copies your message for pasting in Telegram, Discord, or WhatsApp.
-              </p>
+              <p className="text-[11px] font-mono opacity-50 text-center leading-relaxed">“Open Email Client” opens Gmail/Outlook/Apple Mail. “Copy Text” for Telegram/Discord.</p>
             </form>
           </div>
         </div>
@@ -244,4 +151,3 @@ export default function Contact() {
     </section>
   );
 }
-

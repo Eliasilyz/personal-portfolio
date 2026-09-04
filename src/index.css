@@ -6,65 +6,157 @@
   --ink: #0f0d0a;
   --paper: #f7f4ef;
   --paper-dim: #ebe8e1;
-  --amber: #c8860a;
-  --amber-light: #e8a020;
-  --muted: #7a7368;
+  --paper-muted: #f0ece8;
+  --amber: #e8a020;
+  --amber-light: #f0bc50;
+  --amber-dim: #f5d08a;
+  --mustard: #e8a020;
+  --mustard-strong: #c8860a;
+  --muted: #6b6560;
+  --muted-light: #6b6560;
   --border: #d4cfc6;
-  --font-display: 'Newsreader', Georgia, serif;
+  --border-strong: #b8b2a6;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-pill: 999px;
+  --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
   --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+  --font-serif: 'Newsreader', Georgia, serif;
 }
 
 .dark {
   --ink: #f0ece4;
   --paper: #100e0b;
   --paper-dim: #1a1714;
+  --paper-muted: #1e1c1a;
   --amber: #e8a020;
   --amber-light: #f0bc50;
+  --amber-dim: #3a2e12;
+  --mustard: #e8a020;
   --muted: #8a8278;
+  --muted-light: #8a8278;
   --border: #2a2620;
+  --border-strong: #3a362f;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 html {
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
 }
 
 body {
   font-family: var(--font-body);
   background-color: var(--paper);
   color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+*:focus-visible {
+  outline: 1.5px solid var(--amber);
+  outline-offset: 2px;
+}
+
+::selection {
+  background-color: var(--amber);
+  color: var(--paper);
+}
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 9999;
+  padding: 0.625rem 1rem;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid var(--border);
+}
+.skip-link:focus { top: 1rem; }
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--paper-dim); }
+::-webkit-scrollbar-thumb { background: var(--border-strong); }
+::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+
+@media (prefers-reduced-motion: reduce) {
+  /* Non-esensial: bleed & decorative spin — dipercepat/dihilangkan */
+  .animate-bleed, .animate-spin-slow {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+  /* Esensial: hover/focus/button feedback tetap jalan — jangan matikan */
 }
 
 @layer utilities {
-  @keyframes spinSlow {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
+  @keyframes spinSlow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes entryLift { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes bleedScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .animate-spin-slow { animation: spinSlow 12s linear infinite; }
+  .animate-fadeIn { animation: fadeIn 0.32s ease-out forwards; }
+  .animate-entry { animation: entryLift 0.5s ease-out forwards; }
+  .animate-bleed { animation: bleedScroll 18s linear infinite; will-change: transform; }
+  .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+  .custom-scrollbar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 0; }
+  .scrollbar-none::-webkit-scrollbar { display: none; }
+  .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+
+  /* Reference DNA: bleed divider */
+  .bleed-text {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(56px, 11vw, 140px);
+    line-height: 0.85;
+    letter-spacing: -0.05em;
+    text-transform: lowercase;
+    white-space: nowrap;
+    user-select: none;
   }
 
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(4px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  /* Oversized display headline */
+  .display-oversized {
+    font-family: var(--font-display);
+    font-weight: 900;
+    letter-spacing: -0.045em;
+    line-height: 0.88;
   }
 
-  .animate-spin-slow {
-    animation: spinSlow 12s linear infinite;
-  }
+  /* Alternating sections — fixed for contrast (cream #f7f4ef, ink #0f0d0a), tidak invert di dark */
+  .section-cream { background: #f7f4ef; color: #0f0d0a; }
+  .section-cream .muted-cream { color: #6b6560; }
+  .section-ink { background: #0f0d0a; color: #f7f4ef; }
+  .section-ink .muted-ink { color: #a8a29a; }
+  .section-ink .border-soft { border-color: rgba(255,255,255,0.12); }
 
-  .animate-fadeIn {
-    animation: fadeIn 0.3s ease-out forwards;
+  /* De-AI: subtle paper grain + imperfect */
+  .paper-grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: 0.4;
+  }
+  .hand-rotate-1 { transform: rotate(-0.6deg); }
+  .hand-rotate-2 { transform: rotate(0.5deg); }
+  .hand-rotate-3 { transform: rotate(-0.4deg); }
+
+  /* WCAG 2.5.5 — invisible hit-area expansion tanpa ubah visual */
+  .touch-hit { position: relative; }
+  .touch-hit::before {
+    content: "";
+    position: absolute;
+    inset: -10px;
+    /* expand hit-area to >=44px, keep visual size */
   }
 }

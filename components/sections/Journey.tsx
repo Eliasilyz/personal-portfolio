@@ -1,95 +1,66 @@
 import React from "react";
 import { Milestone, journey } from "../../content/journey";
-import { Calendar, CheckCircle2, Flame, Award, TrendingUp, Code, Gamepad2 } from "lucide-react";
 import { useLanguage } from "../../lib/LanguageProvider";
 
 export default function Journey() {
-  const { language, t } = useLanguage();
-
-  const getCategoryIcon = (category: string) => {
-    switch (category) {
-      case "Coding":
-        return Code;
-      case "Game Engineering":
-        return Gamepad2;
-      case "Trading":
-        return TrendingUp;
-      default:
-        return Award;
-    }
-  };
+  const { t, language } = useLanguage();
 
   return (
-    <section id="journey" className="py-16 md:py-24 border-t border-slate-200/80 dark:border-slate-800/80 bg-slate-100/50 dark:bg-slate-900/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        {/* Section Title */}
-        <div className="space-y-2 text-center md:text-left">
-          <div className="inline-flex items-center space-x-2 text-xs font-mono font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
-            <Calendar className="w-4 h-4" />
-            <span>{t("journey.title")}</span>
+    <section id="journey" className="section-ink relative overflow-hidden py-16 md:py-24">
+      {/* reticle corners */}
+      <div className="pointer-events-none absolute top-4 left-4 w-6 h-6 border-l border-t border-white/20 hidden md:block" aria-hidden />
+      <div className="pointer-events-none absolute top-4 right-4 w-6 h-6 border-r border-t border-white/20 hidden md:block" aria-hidden />
+      <div className="pointer-events-none absolute bottom-4 left-4 w-6 h-6 border-l border-b border-white/20 hidden md:block" aria-hidden />
+      <div className="pointer-events-none absolute bottom-4 right-4 w-6 h-6 border-r border-b border-white/20 hidden md:block" aria-hidden />
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div className="space-y-2">
+            <div className="inline-flex px-3 py-1 rounded-full bg-[#e8a020] text-black text-xs font-mono font-bold tracking-widest">[04] / {t("journey.title")}</div>
+            <h2 className="text-3xl sm:text-5xl font-black tracking-tight leading-[0.9] text-[#f7f4ef]" style={{ fontFamily: "var(--font-display)" }}>
+              Timeline &<br />
+              <span className="italic font-light text-[#f7f4ef]/80">Experience</span>
+            </h2>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-slate-100 tracking-tight">
-            Timeline & Experience
-          </h2>
-          <p className="text-base text-slate-600 dark:text-slate-400 max-w-2xl">
-            {t("journey.subtitle")}
-          </p>
+          <p className="text-sm font-mono text-white/60 max-w-md md:text-right">{t("journey.subtitle")}</p>
         </div>
 
-        {/* Vertical Timeline */}
-        <div className="relative border-l-2 border-emerald-500/30 ml-4 md:ml-32 space-y-10 pl-6 md:pl-8">
-          {journey.map((item: Milestone) => {
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
+          {journey.map((item: Milestone, idx) => {
             const title = item.title[language] || item.title.en;
             const description = item.description[language] || item.description.en;
             const highlights = item.highlights[language] || item.highlights.en;
-            const IconComp = getCategoryIcon(item.category);
-
+            const isMustard = idx === 0;
             return (
-              <div key={item.id} className="relative group">
-                {/* Year Marker on Left for Desktop */}
-                <div className="hidden md:block absolute -left-36 top-1 text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400 bg-white dark:bg-slate-900 px-2.5 py-1 rounded-lg border border-slate-200 dark:border-slate-800 shadow-sm text-center w-28">
-                  {item.year}
+              <div
+                key={item.id}
+                className={`${idx === 0 ? "md:col-span-8" : idx === 1 ? "md:col-span-4" : "md:col-span-6"} rounded-[24px] p-6 sm:p-7 flex flex-col ${isMustard ? "bg-[#e8a020] text-black hand-rotate-1" : idx %2===0 ? "bg-white/10 text-[#f7f4ef] border border-white/10 backdrop-blur hand-rotate-2" : "bg-white/10 text-[#f7f4ef] border border-white/10 backdrop-blur hand-rotate-3"}`}
+              >
+                <div className="flex items-center justify-between gap-2">
+                  <span className={`text-xs font-mono px-3 py-1 rounded-full ${isMustard ? "bg-black text-white" : "bg-white text-black"}`}>{item.year}</span>
+                  <span className={`text-[11px] font-mono uppercase tracking-wider ${isMustard ? "text-black/60" : "text-white/60"}`}>{item.category}</span>
                 </div>
-
-                {/* Node Icon on Timeline Line */}
-                <div className="absolute -left-[35px] top-1.5 p-1.5 rounded-full bg-emerald-500 text-slate-950 ring-4 ring-white dark:ring-slate-950 shadow-md">
-                  <IconComp className="w-4 h-4" />
-                </div>
-
-                {/* Card Container */}
-                <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:border-emerald-500/50 transition-all space-y-3">
-                  <div className="flex flex-wrap items-center justify-between gap-2">
-                    <span className="md:hidden text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/20">
-                      {item.year}
-                    </span>
-                    <span className="text-xs font-mono uppercase tracking-wider text-slate-400">
-                      {item.category}
-                    </span>
+                <h3 className="text-lg font-bold tracking-tight leading-tight mt-4">{title}</h3>
+                <p className={`text-sm leading-relaxed mt-2 ${isMustard ? "text-black/70" : "text-white/70"}`}>{description}</p>
+                {highlights && highlights.length > 0 && (
+                  <div className="flex flex-wrap gap-1.5 mt-4">
+                    {highlights.slice(0, 3).map((h, i) => (
+                      <span key={i} className={`px-2.5 py-1 rounded-full text-xs font-mono border ${isMustard ? "bg-black/10 border-black/10" : "bg-white/10 border-white/10"}`}>
+                        {h}
+                      </span>
+                    ))}
                   </div>
-
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100">
-                    {title}
-                  </h3>
-
-                  <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                    {description}
-                  </p>
-
-                  {/* Highlights */}
-                  {highlights && highlights.length > 0 && (
-                    <ul className="pt-2 space-y-1.5 border-t border-slate-100 dark:border-slate-800/80">
-                      {highlights.map((h, idx) => (
-                        <li key={idx} className="flex items-start space-x-2 text-xs text-slate-700 dark:text-slate-300">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" />
-                          <span>{h}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
+                )}
               </div>
             );
           })}
+        </div>
+      </div>
+
+      <div className="mt-12 border-y border-white/10 overflow-hidden py-3 bg-white/5" aria-hidden>
+        <div className="flex gap-6 animate-bleed" style={{ width: "200%" }}>
+          <span className="bleed-text text-white">journey . journey . journey . journey . journey .</span>
+          <span className="bleed-text text-white">journey . journey . journey . journey . journey .</span>
         </div>
       </div>
     </section>

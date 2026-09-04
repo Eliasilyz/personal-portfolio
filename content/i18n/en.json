@@ -10,7 +10,7 @@
   },
   "hero": {
     "greeting": "Hello, I'm",
-    "tagline": "Self-directed developer, trader, and builder",
+    "tagline": "Self-directed developer and builder",
     "badge": "18 y/o • Ponorogo, East Java, Indonesia",
     "viewProjects": "View Projects",
     "contactMe": "Contact Me",
@@ -18,11 +18,11 @@
   },
   "about": {
     "title": "About Me",
-    "subtitle": "Developer, game server engineer, and market trader",
+    "subtitle": "Developer and game server engineer focused on clean, performant web products",
     "quickStats": {
       "experience": "3+ Years Coding",
       "projects": "15+ Repos & Apps",
-      "markets": "Stock & Crypto Spot Trader",
+      "focus": "Web Performance & DX",
       "minecraft": "Custom Fabric Engineer"
     }
   },
@@ -32,7 +32,7 @@
   },
   "projects": {
     "title": "Featured Projects",
-    "subtitle": "Selected repositories, web applications, and game server setups",
+    "subtitle": "Selected repositories, web applications, and developer tooling",
     "all": "All",
     "viewCode": "Code",
     "viewLive": "Live Demo",
@@ -40,26 +40,33 @@
   },
   "journey": {
     "title": "Journey & Milestones",
-    "subtitle": "Key moments in software engineering, game modding, and trading"
+    "subtitle": "Key moments in software engineering and game server development"
   },
   "game": {
-    "title": "Market Dodger",
-    "subtitle": "Avoid red candles & bug blocks, collect green candles & code coins!",
+    "title": "Code Dodger",
+    "subtitle": "Dodge bug blocks and collect code gems — a quick dev-themed runner!",
     "score": "Score",
     "highScore": "High Score",
     "start": "Play Game",
     "restart": "Play Again",
     "howToPlay": "How to Play",
-    "instructions": "Use Spacebar / Up Arrow or tap screen to Jump. Collect Green Candles (+10) and Code Gems (+25). Avoid Red Candles and Glitch Blocks!",
+    "instructions": "Use Spacebar / Up Arrow or tap screen to Jump. Collect Code Gems (+25) and Power Chips (+10). Avoid Bug Blocks and Glitch Walls!",
     "gameOver": "Game Over!"
   },
   "links": {
     "title": "Links & Platforms",
-    "subtitle": "Connect with me across GitHub, social channels, and trading platforms"
+    "subtitle": "Connect with me across GitHub and developer platforms"
+  },
+  "githubStats": {
+    "years": "years on GitHub",
+    "publicRepos": "public repos",
+    "followers": "followers",
+    "stars": "stars earned",
+    "live": "GitHub — live build-time"
   },
   "contact": {
     "title": "Get In Touch",
-    "subtitle": "Have a project idea, business inquiry, or collaboration in mind?",
+    "subtitle": "Have a project idea, engineering question, or collaboration in mind?",
     "namePlaceholder": "Your Name",
     "emailPlaceholder": "Your Email",
     "messagePlaceholder": "Your Message",

@@ -6,56 +6,32 @@ type Theme = "dark" | "light";
 
 interface ThemeContextType {
   theme: Theme;
-  toggleTheme: () => void;
-  setTheme: (theme: Theme) => void;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [theme, setThemeState] = useState<Theme>(() => {
-    if (typeof window !== "undefined") {
-      const storedTheme = localStorage.getItem("theme") as Theme | null;
-      if (storedTheme === "dark" || storedTheme === "light") {
-        return storedTheme;
-      }
-      return document.documentElement.classList.contains("dark") ? "dark" : "light";
-    }
-    return "dark";
-  });
+  const [theme, setTheme] = useState<Theme>("light");
   const [mounted, setMounted] = useState(false);
-
-  const applyTheme = (newTheme: Theme) => {
-    const root = document.documentElement;
-    if (newTheme === "dark") {
-      root.classList.add("dark");
-      root.style.colorScheme = "dark";
-    } else {
-      root.classList.remove("dark");
-      root.style.colorScheme = "light";
-    }
-  };
 
   useEffect(() => {
     setMounted(true);
-    applyTheme(theme);
+    const mq = window.matchMedia("(prefers-color-scheme: dark)");
+    const apply = (isDark: boolean) => {
+      const next: Theme = isDark ? "dark" : "light";
+      setTheme(next);
+      document.documentElement.classList.toggle("dark", isDark);
+      document.documentElement.style.colorScheme = isDark ? "dark" : "light";
+    };
+    apply(mq.matches);
+    const handler = (e: MediaQueryListEvent) => apply(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
   }, []);
 
-  const setTheme = (newTheme: Theme) => {
-    setThemeState(newTheme);
-    localStorage.setItem("theme", newTheme);
-    applyTheme(newTheme);
-  };
-
-  const toggleTheme = () => {
-    const nextTheme = theme === "dark" ? "light" : "dark";
-    setTheme(nextTheme);
-  };
-
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme, setTheme }}>
-      {/* Prevent flash during SSR mount */}
-      <div className={mounted ? "" : "opacity-0 transition-opacity duration-150"}>
+    <ThemeContext.Provider value={{ theme }}>
+      <div className={mounted ? "" : "opacity-0"}>
         {children}
       </div>
     </ThemeContext.Provider>

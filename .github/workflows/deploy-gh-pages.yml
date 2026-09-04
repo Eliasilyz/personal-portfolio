@@ -31,6 +31,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Fetch GitHub stats (build-time, no client rate-limit)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/fetch-github-stats.mjs
+
       - name: Build static site
         env:
           GITHUB_PAGES: 'true'

@@ -9,8 +9,8 @@ import MusicPlayer from "../components/MusicPlayer";
 import { profile } from "../content/profile";
 
 export const metadata: Metadata = {
-  title: `${profile.fullName} (${profile.displayName}) — Software Developer & Trader | Ponorogo`,
-  description: `${profile.fullName} (Farel) is an 18-year-old software developer, crypto & spot trader, and multiplayer game server engineer based in Ponorogo, East Java, Indonesia. Portofolio pengembang perangkat lunak dan trader.`,
+  title: `${profile.fullName} (${profile.displayName}) — Software Developer | Ponorogo`,
+  description: `${profile.fullName} (Farel) is an 18-year-old self-directed software developer and multiplayer game server engineer based in Ponorogo, East Java, Indonesia. Focused on building performant, accessible web applications.`,
   keywords: [
     "Irvan Farael Hanafi",
     "Irvan Farael",
@@ -20,10 +20,9 @@ export const metadata: Metadata = {
     "Programmer Ponorogo",
     "Next.js Developer",
     "TypeScript Specialist",
+    "React Developer",
     "Fabric Modding",
     "Minecraft Modder",
-    "Stockbit Trader",
-    "Crypto Spot Trader",
     "Web Developer Jawa Timur",
   ],
   authors: [{ name: profile.fullName }],
@@ -35,8 +34,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: `${profile.fullName} — Software Developer & Trader`,
-    description: `${profile.fullName} is an 18-year-old self-directed software developer, crypto trader, & Minecraft Fabric modder based in Ponorogo, East Java, Indonesia.`,
+    title: `${profile.fullName} — Software Developer`,
+    description: `${profile.fullName} is an 18-year-old self-directed software developer & Minecraft Fabric engineer based in Ponorogo, East Java, Indonesia, focused on performant web apps.`,
     url: "https://www.farelhanafi.my.id",
     siteName: `${profile.fullName} Portfolio`,
     images: [
@@ -52,7 +51,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${profile.fullName} — Software Developer & Trader`,
+    title: `${profile.fullName} — Software Developer`,
     description: profile.bio.en,
     images: [profile.avatarUrl],
   },
@@ -73,20 +72,20 @@ const jsonLdPerson = {
         addressRegion: "East Java",
         addressCountry: "Indonesia",
       },
-      jobTitle: "Software Developer & Trader",
+      jobTitle: "Software Developer",
       knowsLanguage: ["Indonesian", "English"],
       knowsAbout: [
         "Web Development",
         "TypeScript",
         "Next.js",
+        "React",
         "Minecraft Fabric Modding",
-        "Stockbit Stock Trading",
-        "Binance Crypto Spot Trading",
+        "Frontend Architecture",
       ],
       sameAs: [
-        "https://github.com/stepech",
-        "https://instagram.com/farel_hanafi",
-        "https://t.me/farel_hanafi",
+        "https://github.com/Eliasilyz",
+        "https://www.linkedin.com/in/farel-hanafi/",
+        "https://t.me/ffarelh",
       ],
       url: "https://www.farelhanafi.my.id",
     },
@@ -95,7 +94,7 @@ const jsonLdPerson = {
       "@id": "https://www.farelhanafi.my.id/#website",
       url: "https://www.farelhanafi.my.id",
       name: `${profile.fullName} Portfolio`,
-      description: `Official portfolio website of ${profile.fullName} — Software Developer & Trader from Ponorogo, Indonesia.`,
+      description: `Official portfolio website of ${profile.fullName} — Software Developer from Ponorogo, Indonesia.`,
       inLanguage: ["en", "id"],
     },
   ],
@@ -107,7 +106,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans antialiased selection:bg-emerald-500 selection:text-slate-950 transition-colors duration-200">
+    <div className="min-h-screen flex flex-col bg-[var(--paper)] text-[var(--ink)] font-sans antialiased">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdPerson) }}
@@ -115,7 +114,7 @@ export default function RootLayout({
       <LanguageProvider>
         <ThemeProvider>
           <Header />
-          <main className="flex-1 w-full">{children}</main>
+          <main id="main-content" className="flex-1 w-full">{children}</main>
           <Footer />
           <MusicPlayer />
           <Analytics />
