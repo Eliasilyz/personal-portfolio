@@ -34,16 +34,16 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: profile.fullName }],
   alternates: {
-    canonical: "https://www.farelhanafi.my.id",
+    canonical: "https://farelhanafi.my.id",
     languages: {
-      "en-US": "https://www.farelhanafi.my.id",
-      "id-ID": "https://www.farelhanafi.my.id",
+      "en-US": "https://farelhanafi.my.id",
+      "id-ID": "https://farelhanafi.my.id",
     },
   },
   openGraph: {
     title: `${profile.fullName} — Software Developer`,
     description: `${profile.fullName} is an 18-year-old self-directed software developer & Minecraft Fabric engineer based in Ponorogo, East Java, Indonesia, focused on performant web apps.`,
-    url: "https://www.farelhanafi.my.id",
+    url: "https://farelhanafi.my.id",
     siteName: `${profile.fullName} Portfolio`,
     images: [
       {
@@ -69,7 +69,7 @@ const jsonLdPerson = {
   "@graph": [
     {
       "@type": "Person",
-      "@id": "https://www.farelhanafi.my.id/#person",
+      "@id": "https://farelhanafi.my.id/#person",
       name: profile.fullName,
       alternateName: [profile.displayName, "Irvan Farael", "Farel Ponorogo"],
       description: profile.bio.en,
@@ -94,12 +94,12 @@ const jsonLdPerson = {
         "https://www.linkedin.com/in/farel-hanafi/",
         "https://t.me/ffarelh",
       ],
-      url: "https://www.farelhanafi.my.id",
+      url: "https://farelhanafi.my.id",
     },
     {
       "@type": "WebSite",
-      "@id": "https://www.farelhanafi.my.id/#website",
-      url: "https://www.farelhanafi.my.id",
+      "@id": "https://farelhanafi.my.id/#website",
+      url: "https://farelhanafi.my.id",
       name: `${profile.fullName} Portfolio`,
       description: `Official portfolio website of ${profile.fullName} — Software Developer from Ponorogo, Indonesia.`,
       inLanguage: ["en", "id"],
