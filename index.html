@@ -40,10 +40,6 @@
     <link rel="icon" href="icon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="icon.svg" />
 
-    <!-- Preconnect & Resource Hints -->
-    <link rel="preconnect" href="https://images.unsplash.com" />
-    <link rel="dns-prefetch" href="https://images.unsplash.com" />
-
     <!-- Canonical & Alternate Links -->
     <link rel="canonical" href="https://farelhanafi.my.id/" />
     <link rel="alternate" hreflang="en" href="https://farelhanafi.my.id/" />
@@ -145,13 +141,32 @@
       }
     </script>
 
-    <!-- Fonts -->
+    <!-- Fonts: reduced weights, display=swap, non-blocking -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="dns-prefetch" href="https://images.unsplash.com" />
+    <link rel="preconnect" href="https://avatars.githubusercontent.com" />
+    <link rel="dns-prefetch" href="https://avatars.githubusercontent.com" />
+
+    <!-- Preload critical font (Plus Jakarta Sans 400, 600, 700) -->
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/plusjakartasans/v12/XlyYIZh0ROQJKIEA-75GZ-i90a4.woff2" />
+
+    <!-- Preload LCP image (Hero avatar) -->
+    <link rel="preload" as="image" href="https://raw.githubusercontent.com/Eliasilyz/Eliasilyz.github.io/refs/heads/main/1773843467975%7E2%20(1).jpg" />
+
     <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,800&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400;1,6..72,600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400;500&family=Newsreader:wght@400;600&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400;500&family=Newsreader:wght@400;600&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
 
     <!-- Theme: follows device prefers-color-scheme -->
     <script>

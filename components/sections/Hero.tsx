@@ -84,7 +84,7 @@ export default function Hero() {
 
             <div className="lg:col-span-7 relative lg:-mt-24 lg:-ml-2 animate-entry" style={{ animationDelay: "140ms" }}>
               <div className="relative bg-[#e8a020] rounded-[32px] p-3 sm:p-4 lg:ml-8 hand-rotate-1 lg:-translate-y-2">
-                <div fetchpriority="high" className="rounded-[24px] overflow-hidden bg-[#0f0d0a] aspect-[4/3] relative">
+                <div className="rounded-[24px] overflow-hidden bg-[#0f0d0a] aspect-[4/3] relative">
                   {/* Authentic craft: live code preview (bukan stock hand+PYTHON) — static snapshot dari project nyata */}
                   <div className="absolute inset-0 p-4 sm:p-5 font-mono text-[11px] sm:text-xs leading-relaxed overflow-hidden">
                     <div className="flex items-center gap-1.5 mb-3 text-white/40 text-[10px]">
@@ -103,7 +103,7 @@ export default function Hero() {
                   <div className="absolute top-3 right-3 bg-[#f7f4ef]/90 backdrop-blur px-2 py-1 rounded-full text-[10px] font-mono text-black border border-black/10 -rotate-2">fig. 01 — source</div>
                 </div>
                 <div className="absolute -bottom-4 -left-2 sm:-left-4 w-[88px] h-[88px] sm:w-[104px] sm:h-[104px] rounded-full border-[4px] border-[#f7f4ef] overflow-hidden shadow-xl bg-[#f7f4ef] rotate-3">
-                  <img src={profile.avatarUrl} alt={profile.fullName} className="w-full h-full object-cover" />
+                  <img src={profile.avatarUrl} alt={profile.fullName} className="w-full h-full object-cover" fetchPriority="high" />
                 </div>
                 <div className="absolute -top-3 -right-2 sm:right-4 bg-[#0f0d0a] text-[#f7f4ef] rounded-full px-4 py-2 flex items-center gap-2 shadow-lg text-xs font-mono">
                   <span className="w-2 h-2 rounded-full bg-[#e8a020] animate-pulse" />

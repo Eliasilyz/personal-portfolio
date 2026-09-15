@@ -1,12 +1,66 @@
-import React from "react";
-import type { Metadata } from "next";
-import { Analytics } from "@vercel/analytics/react";
+import React, { Suspense, lazy, useEffect, useState } from "react";
+
+export interface Metadata {
+  title?: string;
+  description?: string;
+  keywords?: string[];
+  authors?: Array<{ name: string }>;
+  creator?: string;
+  publisher?: string;
+  robots?: {
+    index?: boolean;
+    follow?: boolean;
+    googleBot?: {
+      index?: boolean;
+      follow?: boolean;
+      "max-image-preview"?: string;
+      "max-snippet"?: number;
+    };
+  };
+  alternates?: {
+    canonical?: string;
+    languages?: Record<string, string>;
+  };
+  openGraph?: {
+    title?: string;
+    description?: string;
+    url?: string;
+    siteName?: string;
+    images?: Array<{
+      url: string;
+      width?: number;
+      height?: number;
+      alt?: string;
+    }>;
+    locale?: string;
+    type?: string;
+  };
+  twitter?: {
+    card?: string;
+    title?: string;
+    description?: string;
+    images?: string[];
+  };
+  icons?: {
+    icon?: Array<{ url: string; sizes?: string; type?: string }>;
+    apple?: Array<{ url: string }>;
+  };
+}
+
 import { ThemeProvider } from "../lib/ThemeProvider";
 import { LanguageProvider } from "../lib/LanguageProvider";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import MusicPlayer from "../components/MusicPlayer";
 import { profile } from "../content/profile";
+
+const MusicPlayer = lazy(() => import("../components/MusicPlayer"));
+
+const AnalyticsWrapper = () => {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => { setMounted(true); }, []);
+  if (!mounted) return null;
+  return import("@vercel/analytics/react").then(m => <m.Analytics />);
+};
 
 export const metadata: Metadata = {
   icons: {
@@ -135,8 +189,12 @@ export default function RootLayout({
           <Header />
           <main id="main-content" className="flex-1 w-full">{children}</main>
           <Footer />
-          <MusicPlayer />
-          <Analytics />
+          <Suspense fallback={null}>
+            <MusicPlayer />
+          </Suspense>
+          <Suspense fallback={null}>
+            <AnalyticsWrapper />
+          </Suspense>
         </ThemeProvider>
       </LanguageProvider>
     </div>
