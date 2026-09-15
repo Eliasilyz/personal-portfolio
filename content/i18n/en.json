@@ -12,7 +12,11 @@
     "greeting": "Hello, I'm",
     "tagline": "Self-directed developer and builder",
     "badge": "18 y/o • Ponorogo, East Java, Indonesia",
+    "aboutMe": "About Me",
+    "myStack": "My Stack",
     "viewProjects": "View Projects",
+    "myJourney": "My Journey",
+    "myLinks": "My Links",
     "contactMe": "Contact Me",
     "availableForWork": "Available for projects & collaboration"
   },

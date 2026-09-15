@@ -19,10 +19,10 @@ export default function Hero() {
 
           {/* De-AI: mix sans + serif italic, tight + loose */}
           <h1 className="animate-entry">
-            <span className="block display-oversized text-[56px] sm:text-[88px] lg:text-[110px] text-[#0f0d0a] leading-[0.85] tracking-[-0.05em]">Building</span>
+            <span className="block display-oversized text-[56px] sm:text-[88px] lg:text-[110px] text-[#0f0d0a] leading-[0.85] tracking-[-0.05em]">Irvan Farael Hanafi</span>
             <span className="block -mt-2 sm:-mt-4 display-oversized text-[56px] sm:text-[88px] lg:text-[110px] leading-[0.85] tracking-[-0.05em] text-[#0f0d0a]">
-              software<span className="text-[#e8a020]">.</span>
-              <span className="align-baseline ml-2 sm:ml-3 text-[18px] sm:text-[20px] font-normal tracking-normal font-[var(--font-serif)] italic text-[#6b6560]">— dev-first</span>
+              {profile.displayName} <span className="text-[#e8a020]">—</span>
+              <span className="align-baseline ml-2 sm:ml-3 text-[18px] sm:text-[20px] font-normal tracking-normal font-[var(--font-serif)] italic text-[#6b6560]">Software Developer</span>
             </span>
           </h1>
 
@@ -32,12 +32,28 @@ export default function Hero() {
                 {profile.bio[language] || profile.bio.en}
               </p>
               <div className="flex flex-wrap gap-2.5">
-                <a href="#projects" className="inline-flex items-center gap-1.5 px-5 py-3 rounded-full bg-[#0f0d0a] text-[#f7f4ef] text-xs font-mono uppercase tracking-wider hover:bg-[#e8a020] hover:text-black transition-colors duration-150">
+                <a href="#about" className="inline-flex items-center gap-1.5 px-5 py-3 rounded-full bg-[#0f0d0a] text-[#f7f4ef] text-xs font-mono uppercase tracking-wider hover:bg-[#e8a020] hover:text-black transition-colors duration-150">
+                  <span>{t("hero.aboutMe")}</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </a>
+                <a href="#skills" className="inline-flex items-center gap-1.5 px-5 py-3 rounded-full border border-[#d4cfc6] bg-transparent text-[#0f0d0a] text-xs font-mono uppercase tracking-wider hover:bg-[#0f0d0a] hover:text-white hover:border-[#0f0d0a] transition-colors">
+                  <span>{t("hero.myStack")}</span>
+                </a>
+                <a href="#projects" className="inline-flex items-center gap-1.5 px-5 py-3 rounded-full bg-[#f7f4ef] border border-[#d4cfc6] text-[#0f0d0a] text-xs font-mono hover:border-[#0f0d0a] transition-colors">
                   <span>{t("hero.viewProjects")}</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </a>
-                <a href="#contact" className="inline-flex items-center gap-1.5 px-5 py-3 rounded-full border border-[#d4cfc6] bg-transparent text-[#0f0d0a] text-xs font-mono uppercase tracking-wider hover:bg-[#0f0d0a] hover:text-white hover:border-[#0f0d0a] transition-colors">
+                <a href="#journey" className="inline-flex items-center gap-1.5 px-4 py-3 rounded-full bg-[#f7f4ef] border border-[#d4cfc6] text-[#0f0d0a] text-xs font-mono hover:border-[#0f0d0a] transition-colors">
+                  <span>{t("hero.myJourney")}</span>
+                  <ArrowUpRight className="w-3 h-3 opacity-60" />
+                </a>
+                <a href="#links" className="inline-flex items-center gap-1.5 px-4 py-3 rounded-full bg-[#f7f4ef] border border-[#d4cfc6] text-[#0f0d0a] text-xs font-mono hover:border-[#0f0d0a] transition-colors">
+                  <span>{t("hero.myLinks")}</span>
+                  <ArrowUpRight className="w-3 h-3 opacity-60" />
+                </a>
+                <a href="#contact" className="inline-flex items-center gap-1.5 px-4 py-3 rounded-full bg-[#f7f4ef] border border-[#d4cfc6] text-[#0f0d0a] text-xs font-mono hover:border-[#0f0d0a] transition-colors">
                   <span>{t("hero.contactMe")}</span>
+                  <ArrowUpRight className="w-3 h-3 opacity-60" />
                 </a>
                 <a href="https://github.com/Eliasilyz" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-4 py-3 rounded-full bg-[#f7f4ef] border border-[#d4cfc6] text-[#0f0d0a] text-xs font-mono hover:border-[#0f0d0a] transition-colors">
                   <span>GitHub</span>

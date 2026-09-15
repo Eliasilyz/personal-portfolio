@@ -6,6 +6,15 @@ import { useLanguage } from "../lib/LanguageProvider";
 export default function Footer() {
   const { language, toggleLanguage, t } = useLanguage();
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+  const sections = [
+    { href: "#about", label: t("nav.about") },
+    { href: "#skills", label: t("nav.skills") },
+    { href: "#projects", label: t("nav.projects") },
+    { href: "#journey", label: t("nav.journey") },
+    { href: "#play", label: t("nav.play") },
+    { href: "#links", label: t("nav.links") },
+    { href: "#contact", label: t("nav.contact") },
+  ];
 
   return (
     <footer className="section-ink border-t border-white/10">
@@ -27,7 +36,12 @@ export default function Footer() {
             </button>
           </div>
         </div>
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-2 pt-6 text-xs font-mono text-white/60">
+        <nav className="flex flex-wrap justify-center gap-4 md:gap-6 py-6 text-xs font-mono text-white/60" aria-label="Footer navigation">
+          {sections.map((s) => (
+            <a key={s.href} href={s.href} className="hover:text-white hover:text-[var(--amber)] transition-colors">{s.label}</a>
+          ))}
+        </nav>
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-2 pt-4 border-t border-white/10 text-xs font-mono text-white/60">
           <p>© {new Date().getFullYear()} {profile.fullName}. {t("footer.rights")}</p>
           <p className="text-[11px]">{t("footer.builtWith")}</p>
         </div>

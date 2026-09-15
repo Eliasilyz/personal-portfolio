@@ -9,5 +9,18 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.farelhanafi.my.id"
+        }
+      ],
+      "destination": "https://farelhanafi.my.id/:path*",
+      "permanent": true
+    }
   ]
 }

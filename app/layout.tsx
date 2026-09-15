@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     ],
     apple: [{ url: "/icon.svg" }],
   },
-  title: `${profile.fullName} (${profile.displayName}) — Software Developer | Ponorogo`,
+  title: `${profile.fullName} — Software Developer, Ponorogo`,
   description: `Farel (${profile.fullName}) — Software Developer in Ponorogo, Indonesia building fast, accessible web apps.`,
   keywords: [
     "Irvan Farael Hanafi",
