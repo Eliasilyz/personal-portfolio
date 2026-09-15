@@ -1,0 +1,72 @@
+# Irvan Farael Hanafi (Farel) — Software Developer
+
+> Portfolio of Farel, a self-directed software developer in Ponorogo, East Java, Indonesia building fast, accessible web apps.
+
+## About
+
+- Location: Ponorogo, East Java, Indonesia
+- Focus: TypeScript, React, Next.js, Tailwind CSS, web performance and accessibility
+- Also: multiplayer game server engineering and Minecraft Fabric modding
+- Languages: Indonesian, English
+
+## Site
+
+- [Home](https://farelhanafi.my.id/)
+- [Projects](https://farelhanafi.my.id/#projects)
+- [Journey](https://farelhanafi.my.id/#journey)
+- [Contact](https://farelhanafi.my.id/#contact)
+
+## Profiles
+
+- [GitHub](https://github.com/Eliasilyz)
+- [LinkedIn](https://www.linkedin.com/in/farel-hanafi/)
+- [Instagram](https://instagram.com/faraelh_)
+- [Telegram](https://t.me/ffarelh)
+
+## Content: About (English)
+
+18-year-old self-directed software developer and multiplayer game server engineer based in Ponorogo, East Java. Dedicated to building performant, accessible web applications and customizing high-throughput Minecraft Fabric servers with clean, maintainable code.
+
+### Highlights
+
+- Passionate about clean TypeScript architecture and responsive web UI
+- Experienced in Fabric modding, JVM tuning, and multiplayer server setups
+- Shipped 15+ web projects focused on performance and accessibility
+
+## Content: Skills
+
+### Web Development
+
+- Builds and maintains personal web projects
+- Active GitHub repositories
+- React & Next.js App Router
+- TypeScript & Tailwind CSS
+- RESTful API Integration
+
+### Game Server Engineering
+
+- Custom multiplayer Minecraft server setup
+- Advanced Fabric modding
+- Minecraft NBT data configuration
+- Linux Server Administration & Ports
+- Plugin & DataPack Engineering
+
+### Engineering Practices
+
+- Clean architecture & component design
+- Performance profiling & accessibility (a11y)
+- Git workflows & CI/CD
+- Testing & code quality automation
+
+## Content: Projects
+
+Featured repositories and web applications built with React, Next.js, TypeScript, and Tailwind CSS.
+
+## Content: Journey
+
+Key milestones in software engineering and game server development.
+
+## Contact
+
+Email: farel.hanafi@proton.me
+Location: Ponorogo, East Java, Indonesia

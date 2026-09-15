@@ -1,4 +1,4 @@
-# Irvan Farael Hanafi (Farel) - Software Developer
+# Irvan Farael Hanafi (Farel) — Software Developer
 
 > Portfolio of Farel, a self-directed software developer in Ponorogo, East Java, Indonesia building fast, accessible web apps.
 
@@ -11,14 +11,18 @@
 
 ## Site
 
-- Home: https://farelhanafi.my.id/
-- Projects: https://farelhanafi.my.id/#projects
-- Journey: https://farelhanafi.my.id/#journey
-- Contact: https://farelhanafi.my.id/#contact
+- [Home](https://farelhanafi.my.id/)
+- [Projects](https://farelhanafi.my.id/#projects)
+- [Journey](https://farelhanafi.my.id/#journey)
+- [Contact](https://farelhanafi.my.id/#contact)
 
 ## Profiles
 
-- GitHub: https://github.com/Eliasilyz
-- LinkedIn: https://www.linkedin.com/in/farel-hanafi/
-- Instagram: https://instagram.com/faraelh_
-- Telegram: https://t.me/ffarelh
+- [GitHub](https://github.com/Eliasilyz)
+- [LinkedIn](https://www.linkedin.com/in/farel-hanafi/)
+- [Instagram](https://instagram.com/faraelh_)
+- [Telegram](https://t.me/ffarelh)
+
+## Optional: llms-full.txt
+
+For full content including all sections, see [llms-full.txt](https://farelhanafi.my.id/llms-full.txt)
