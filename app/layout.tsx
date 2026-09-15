@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     apple: [{ url: "/icon.svg" }],
   },
   title: `${profile.fullName} (${profile.displayName}) — Software Developer | Ponorogo`,
-  description: `${profile.fullName} (Farel) is an 18-year-old self-directed software developer and multiplayer game server engineer based in Ponorogo, East Java, Indonesia. Focused on building performant, accessible web applications.`,
+  description: `Farel (${profile.fullName}) — Software Developer in Ponorogo, Indonesia building fast, accessible web apps.`,
   keywords: [
     "Irvan Farael Hanafi",
     "Irvan Farael",
@@ -33,6 +33,18 @@ export const metadata: Metadata = {
     "Web Developer Jawa Timur",
   ],
   authors: [{ name: profile.fullName }],
+  creator: profile.fullName,
+  publisher: profile.fullName,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   alternates: {
     canonical: "https://farelhanafi.my.id",
     languages: {
@@ -42,7 +54,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: `${profile.fullName} — Software Developer`,
-    description: `${profile.fullName} is an 18-year-old self-directed software developer & Minecraft Fabric engineer based in Ponorogo, East Java, Indonesia, focused on performant web apps.`,
+    description: `Farel (${profile.fullName}) — Software Developer in Ponorogo, Indonesia building fast, accessible web apps.`,
     url: "https://farelhanafi.my.id",
     siteName: `${profile.fullName} Portfolio`,
     images: [
@@ -59,7 +71,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: `${profile.fullName} — Software Developer`,
-    description: profile.bio.en,
+    description: `Farel (${profile.fullName}) — Software Developer in Ponorogo, Indonesia building fast, accessible web apps.`,
     images: [profile.avatarUrl],
   },
 };
@@ -72,7 +84,7 @@ const jsonLdPerson = {
       "@id": "https://farelhanafi.my.id/#person",
       name: profile.fullName,
       alternateName: [profile.displayName, "Irvan Farael", "Farel Ponorogo"],
-      description: profile.bio.en,
+      description: `Farel (${profile.fullName}) — Software Developer in Ponorogo, Indonesia building fast, accessible web apps.`,
       address: {
         "@type": "PostalAddress",
         addressLocality: "Ponorogo",
